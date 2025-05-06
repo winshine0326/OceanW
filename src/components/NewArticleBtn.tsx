@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const newBtn:React.CSSProperties = {
     width : '100%',
     height: '44px',
@@ -7,9 +9,11 @@ const newBtn:React.CSSProperties = {
 
 const NewArticleBtn = () =>{
     return(
-        <button style={newBtn}>
-            <h2>글쓰기</h2>
-        </button>
+        <Link to='/new'>
+            <button style={newBtn}>
+                <h2>글쓰기</h2>
+            </button>
+        </Link>
     )
 }
 
