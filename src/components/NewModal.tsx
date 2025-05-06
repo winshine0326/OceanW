@@ -87,7 +87,7 @@ const NewModal: React.FC = () => {
                     <ReactMarkdown
                         rehypePlugins={[rehypeRaw]}
                         components={{
-                            wavy: ({ children }: { node: any; children: React.ReactNode }) => <Wavy>{children}</Wavy>,
+                            wavy: ({ children }: { children: React.ReactNode }) => <Wavy>{children}</Wavy>,
                             
                         } as Record<string, any>}
                     >
