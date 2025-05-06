@@ -1,4 +1,6 @@
 import logo from '../assets/image/oceanWIcon.png';
+import leftWhale from '../assets/image/leftWhale.png';
+import rightWhale from '../assets/image/rightWhale.png';
 
 const sidebarConatiner: React.CSSProperties = {
     width: '12%',
@@ -13,7 +15,6 @@ const sidebarConatiner: React.CSSProperties = {
 const iconContainer:React.CSSProperties = {
     width: '100%',
     height: '50px',
-    backgroundColor: 'black',
     margin: '10px 0',
     display:'flex',
     justifyContent:'space-between'
@@ -25,9 +26,16 @@ const logoStyle:React.CSSProperties = {
 }
 
 const whales:React.CSSProperties = {
-    width:'10px',
+    width:'auto',
     height:'100%',
-    backgroundColor:'red',
+    display:'flex',
+    alignItems:'center',
+    gap:'8px'
+}
+
+const whaleStyle:React.CSSProperties = {
+    width: '20px',
+    height: 'auto'
 }
 
 const SideBar = (): React.ReactElement => {
@@ -36,6 +44,8 @@ const SideBar = (): React.ReactElement => {
         <div style={iconContainer}>
             <img src={logo} alt="OceanWIcon" style={logoStyle}/>
             <div style={whales}>
+                <img src={leftWhale} alt="leftWhale" style={whaleStyle}/>
+                <img src={rightWhale} alt="rightWhale" style={whaleStyle}/>
             </div>
         </div>
         <div>
