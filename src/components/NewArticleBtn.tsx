@@ -9,7 +9,7 @@ const newBtn:React.CSSProperties = {
 
 const NewArticleBtn = () =>{
     return(
-        <Link to='/new'>
+        <Link to='/new' style={{ textDecoration: 'none' }}>
             <div style={newBtn}>
                 <h2> + 글쓰기</h2>
             </div>
