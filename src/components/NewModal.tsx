@@ -57,9 +57,14 @@ const contentStyle: React.CSSProperties = {
 
 const NewModal: React.FC = () => {
     const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
 
     const handleTitleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
+    };
+
+    const handleContentChange = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
+        setContent(e.target.value);
     };
 
     return (
@@ -67,13 +72,13 @@ const NewModal: React.FC = () => {
             <section style={writingSection}>
                 <input type="text" style={titleStyle} placeholder="제목" onChange={handleTitleChange}/>
                 <hr />
-                <textarea style={contentStyle} placeholder="내용을 입력하세요" />
+                <textarea style={contentStyle} placeholder="내용을 입력하세요" onChange={handleContentChange} />
             </section>
 
             <section style={previewSection}>
                 <input type="text" style={titleStyle} placeholder="제목" readOnly value={title}/>
                 <hr />
-                <textarea style={contentStyle} placeholder="내용을 입력하세요" readOnly/>
+                <textarea style={contentStyle} placeholder="내용을 입력하세요" readOnly value={content}/>
             </section>
         </div>
     )
