@@ -15,6 +15,8 @@ const iconContainer:React.CSSProperties = {
     height: '50px',
     backgroundColor: 'black',
     margin: '10px 0',
+    display:'flex',
+    justifyContent:'space-between'
 }
 
 const logoStyle:React.CSSProperties = {
@@ -22,11 +24,19 @@ const logoStyle:React.CSSProperties = {
     width:'auto',
 }
 
+const whales:React.CSSProperties = {
+    width:'10px',
+    height:'100%',
+    backgroundColor:'red',
+}
+
 const SideBar = (): React.ReactElement => {
     return (
       <div style={sidebarConatiner}>
         <div style={iconContainer}>
             <img src={logo} alt="OceanWIcon" style={logoStyle}/>
+            <div style={whales}>
+            </div>
         </div>
         <div>
 
