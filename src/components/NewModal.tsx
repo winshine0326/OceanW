@@ -5,7 +5,8 @@ import Wavy from '../utils/Wavy';
 import Splash from '../utils/Splash';
 import Bubble from '../utils/Bubble';
 import Float from '../utils/Float';
-import Jellyfish from '../utils/JellyFish';
+import Jellyfish from '../utils/Jellyfish';
+import '../global.css';
 
 const modalContainer: React.CSSProperties = {
     width: '100vw',
