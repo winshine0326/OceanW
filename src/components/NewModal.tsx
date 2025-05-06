@@ -50,6 +50,7 @@ const contentStyle: React.CSSProperties = {
     outline: 'none',
     border: 'none',
     fontSize: 'large',
+    resize:'none'
 };
 
 const NewModal: React.FC = () => {
@@ -63,6 +64,7 @@ const NewModal: React.FC = () => {
             <section style={previewSection}>
                 <input type="text" style={titleStyle} placeholder="제목" readOnly/>
                 <hr />
+                <textarea style={contentStyle} placeholder="내용을 입력하세요" readOnly/>
             </section>
         </div>
     )
