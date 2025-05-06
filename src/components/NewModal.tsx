@@ -5,6 +5,7 @@ import Wavy from '../utils/Wavy';
 import Splash from '../utils/Splash';
 import Bubble from '../utils/Bubble';
 import Float from '../utils/Float';
+import Jellyfish from '../utils/JellyFish';
 
 const modalContainer: React.CSSProperties = {
     width: '100vw',
@@ -76,7 +77,8 @@ const NewModal: React.FC = () => {
     const parsedContent = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>')
                         .replace(/<첨벙첨벙>/g, '<splash>').replace(/<\/첨벙첨벙>/g, '</splash>')
                         .replace(/<버블버블>/g, '<bubble>').replace(/<\/버블버블>/g, '</bubble>')
-                        .replace(/<출렁출렁>/g, '<float>').replace(/<\/출렁출렁>/g, '</float>');
+                        .replace(/<출렁출렁>/g, '<float>').replace(/<\/출렁출렁>/g, '</float>')
+                        .replace(/<해파리>/g, '<jellyfish>').replace(/<\/해파리>/g, '</jellyfish>');
 
     return (
         <div style={modalContainer}>
@@ -97,6 +99,7 @@ const NewModal: React.FC = () => {
                             splash : ({ children }: { children: React.ReactNode }) => <Splash>{children}</Splash>,
                             bubble : ({ children }: { children: React.ReactNode }) => <Bubble>{children}</Bubble>,
                             float : ({ children }: { children: React.ReactNode }) => <Float>{children}</Float>,
+                            jellyfish : ({ children } : { children: React.ReactNode }) => <Jellyfish>{children}</Jellyfish>
                         } as Record<string, any>}
                     >
                         {parsedContent}
