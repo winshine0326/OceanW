@@ -1,6 +1,7 @@
 import logo from '../assets/image/oceanWIcon.png';
 import leftWhale from '../assets/image/leftWhale.png';
 import rightWhale from '../assets/image/rightWhale.png';
+import NewArticleBtn from './NewArticleBtn';
 
 const sidebarConatiner: React.CSSProperties = {
     width: '12%',
@@ -49,7 +50,7 @@ const SideBar = (): React.ReactElement => {
             </div>
         </div>
         <div>
-
+            <NewArticleBtn/>
         </div>
       </div>
     );
