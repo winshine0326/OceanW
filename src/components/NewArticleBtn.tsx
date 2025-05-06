@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 const newBtn:React.CSSProperties = {
     width : '100%',
     height: '44px',
-    backgroundColor:'black',
     color:'white',
+    textAlign:'center',
 }
 
 const NewArticleBtn = () =>{
     return(
         <Link to='/new'>
-            <button style={newBtn}>
-                <h2>글쓰기</h2>
-            </button>
+            <div style={newBtn}>
+                <h2> + 글쓰기</h2>
+            </div>
         </Link>
     )
 }
