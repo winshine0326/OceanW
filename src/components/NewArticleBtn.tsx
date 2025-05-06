@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import '../global.css';
 
 const newBtn:React.CSSProperties = {
     width : '100%',
     height: '44px',
     color:'white',
     textAlign:'center',
+    fontFamily:'SokchoBadaCalligraphy',
 }
 
 const NewArticleBtn = () =>{

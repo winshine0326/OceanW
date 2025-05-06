@@ -9,3 +9,10 @@
     height:100vh;
     background-size: cover;
   }
+
+@font-face {
+    font-family: 'SokchoBadaCalligraphy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/SokchoBadaCalligraphy.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
