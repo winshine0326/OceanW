@@ -1,9 +1,13 @@
+import NewModal from "../../components/NewModal";
 import SideBar from "../../components/SideBar"
 
 
 const NewArticle = () =>{
     return(
-        <SideBar/>
+        <>
+            <NewModal/>
+            <SideBar/>
+        </>
     )
 }
 

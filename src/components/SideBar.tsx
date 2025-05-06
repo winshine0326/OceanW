@@ -11,6 +11,8 @@ const sidebarConatiner: React.CSSProperties = {
     flexDirection: 'column',
     gap: '24px',
     padding:'0 10px',
+    position:'absolute',
+    zIndex:'999'
 };
 
 const iconContainer:React.CSSProperties = {
