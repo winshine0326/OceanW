@@ -1,9 +1,10 @@
-import './style.css';
 
-const Home = ()=>{
-    <div className='container'>
-        
-      </div>
+function Home(): React.ReactElement {
+  return (
+    <div>
+      <h1>Welcome to the Home Page</h1>
+    </div>
+  );
 }
 
 export default Home;
