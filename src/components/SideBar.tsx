@@ -1,3 +1,5 @@
+import logo from '../assets/image/oceanWIcon.png';
+
 const sidebarConatiner: React.CSSProperties = {
     width: '12%',
     height: '100vh',
@@ -5,13 +7,29 @@ const sidebarConatiner: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
+    padding:'10px',
 };
+
+const iconContainer:React.CSSProperties = {
+    width: '100%',
+    height: '50px',
+    backgroundColor: 'black',
+}
+
+const logoStyle:React.CSSProperties = {
+    height:'100%',
+    width:'auto',
+}
 
 const SideBar = (): React.ReactElement => {
     return (
       <div style={sidebarConatiner}>
-        <h1>asdkf</h1>
-        <h2>asdfad</h2>
+        <div style={iconContainer}>
+            <img src={logo} alt="OceanWIcon" style={logoStyle}/>
+        </div>
+        <div>
+
+        </div>
       </div>
     );
 };
