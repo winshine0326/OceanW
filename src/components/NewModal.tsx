@@ -70,7 +70,7 @@ const NewModal: React.FC = () => {
         setContent(e.target.value);
     };
 
-    const parsedInput = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>');
+    const parsedWavy = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>');
 
     return (
         <div style={modalContainer}>
@@ -91,7 +91,7 @@ const NewModal: React.FC = () => {
                             
                         } as Record<string, any>}
                     >
-                        {parsedInput}
+                        {parsedWavy}
                     </ReactMarkdown>
                 </div>
             </section>
