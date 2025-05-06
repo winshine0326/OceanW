@@ -1,46 +1,49 @@
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import Wavy from '../utils/Wavy';
 
 const modalContainer: React.CSSProperties = {
     width: '100vw',
     height: '100vh',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     position: 'absolute',
-    top:'0',
+    top: '0',
 }
 
-const writingSection:React.CSSProperties = {
-    width:'38%',
-    height:'95%',
-    backgroundColor:'#1E1E1E',
-    position:'absolute',
-    left:'15%',
-    top:'2.5%',
-    zIndex:'999',
-    borderRadius:'10px',
-    padding:'0 20px'
+const writingSection: React.CSSProperties = {
+    width: '38%',
+    height: '95%',
+    backgroundColor: '#1E1E1E',
+    position: 'absolute',
+    left: '15%',
+    top: '2.5%',
+    zIndex: '999',
+    borderRadius: '10px',
+    padding: '0 20px'
 }
 
-const titleStyle:React.CSSProperties = {
-    width:'100%',
+const titleStyle: React.CSSProperties = {
+    width: '100%',
     height: '50px',
-    background : 'none',
-    color:'white',
-    outline:'none',
-    border:'none',
-    fontSize:'xx-large',
-    margin:'10px 10px'
+    background: 'none',
+    color: 'white',
+    outline: 'none',
+    border: 'none',
+    fontSize: 'xx-large',
+    margin: '10px 10px'
 }
 
-const previewSection:React.CSSProperties = {
-    width:'38%',
-    height:'95%',
-    backgroundColor:'#1E1E1E',
-    position:'absolute',
-    left:'57.5%',
-    top:'2.5%',
-    zIndex:'999',
-    borderRadius:'10px',
-    padding:'0 20px'
+const previewSection: React.CSSProperties = {
+    width: '38%',
+    height: '95%',
+    backgroundColor: '#1E1E1E',
+    position: 'absolute',
+    left: '57.5%',
+    top: '2.5%',
+    zIndex: '999',
+    borderRadius: '10px',
+    padding: '0 20px'
 }
 
 const contentStyle: React.CSSProperties = {
@@ -52,35 +55,46 @@ const contentStyle: React.CSSProperties = {
     outline: 'none',
     border: 'none',
     fontSize: 'large',
-    resize:'none'
+    resize: 'none'
 };
 
 const NewModal: React.FC = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleTitleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
     };
 
-    const handleContentChange = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setContent(e.target.value);
     };
+
+    const parsedInput = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>');
 
     return (
         <div style={modalContainer}>
             <section style={writingSection}>
-                <input type="text" style={titleStyle} placeholder="제목" onChange={handleTitleChange}/>
+                <input type="text" style={titleStyle} placeholder="제목" onChange={handleTitleChange} />
                 <hr />
                 <textarea style={contentStyle} placeholder="내용을 입력하세요" onChange={handleContentChange} />
             </section>
 
             <section style={previewSection}>
-                <input type="text" style={titleStyle} placeholder="제목" readOnly value={title}/>
+                <input type="text" style={titleStyle} placeholder="제목" readOnly value={title} />
                 <hr />
-                <textarea style={contentStyle} placeholder="내용을 입력하세요" readOnly value={content}/>
+                <div style={contentStyle}>
+                    <ReactMarkdown
+                        rehypePlugins={[rehypeRaw]}
+                        components={{
+                            wavy: ({ node, children, ...props }: { node: any; children: React.ReactNode }) => <Wavy {...props}>{children}</Wavy>,
+                        } as Record<string, any>}
+                    >
+                        {parsedInput}
+                    </ReactMarkdown>
+                </div>
             </section>
-        </div>
+        </div >
     )
 }
 
