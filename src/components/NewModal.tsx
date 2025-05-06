@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Wavy from '../utils/Wavy';
+import Splash from '../utils/Splash';
 
 const modalContainer: React.CSSProperties = {
     width: '100vw',
@@ -70,7 +71,8 @@ const NewModal: React.FC = () => {
         setContent(e.target.value);
     };
 
-    const parsedWavy = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>');
+    const parsedContent = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>')
+                        .replace(/<첨벙첨벙>/g, '<splash>').replace(/<\/첨벙첨벙>/g, '</splash>');
 
     return (
         <div style={modalContainer}>
@@ -88,10 +90,10 @@ const NewModal: React.FC = () => {
                         rehypePlugins={[rehypeRaw]}
                         components={{
                             wavy: ({ children }: { children: React.ReactNode }) => <Wavy>{children}</Wavy>,
-                            
+                            splash : ({ children }: { children: React.ReactNode }) => <Splash>{children}</Splash>
                         } as Record<string, any>}
                     >
-                        {parsedWavy}
+                        {parsedContent}
                     </ReactMarkdown>
                 </div>
             </section>
