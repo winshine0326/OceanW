@@ -7,13 +7,14 @@ const sidebarConatiner: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
-    padding:'10px',
+    padding:'0 10px',
 };
 
 const iconContainer:React.CSSProperties = {
     width: '100%',
     height: '50px',
     backgroundColor: 'black',
+    margin: '10px 0',
 }
 
 const logoStyle:React.CSSProperties = {
