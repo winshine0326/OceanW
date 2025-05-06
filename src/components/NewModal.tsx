@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Wavy from '../utils/Wavy';
 import Splash from '../utils/Splash';
+import Bubble from '../utils/Bubble';
 
 const modalContainer: React.CSSProperties = {
     width: '100vw',
@@ -72,7 +73,8 @@ const NewModal: React.FC = () => {
     };
 
     const parsedContent = content.replace(/<일렁일렁>/g, '<wavy>').replace(/<\/일렁일렁>/g, '</wavy>')
-                        .replace(/<첨벙첨벙>/g, '<splash>').replace(/<\/첨벙첨벙>/g, '</splash>');
+                        .replace(/<첨벙첨벙>/g, '<splash>').replace(/<\/첨벙첨벙>/g, '</splash>')
+                        .replace(/<버블버블>/g, '<bubble>').replace(/<\/버블버블>/g, '</bubble>');
 
     return (
         <div style={modalContainer}>
@@ -90,7 +92,8 @@ const NewModal: React.FC = () => {
                         rehypePlugins={[rehypeRaw]}
                         components={{
                             wavy: ({ children }: { children: React.ReactNode }) => <Wavy>{children}</Wavy>,
-                            splash : ({ children }: { children: React.ReactNode }) => <Splash>{children}</Splash>
+                            splash : ({ children }: { children: React.ReactNode }) => <Splash>{children}</Splash>,
+                            bubble : ({ children }: { children: React.ReactNode }) => <Bubble>{children}</Bubble>
                         } as Record<string, any>}
                     >
                         {parsedContent}
