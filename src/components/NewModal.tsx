@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const modalContainer: React.CSSProperties = {
     width: '100vw',
     height: '100vh',
@@ -54,15 +56,22 @@ const contentStyle: React.CSSProperties = {
 };
 
 const NewModal: React.FC = () => {
+    const [title, setTitle] = useState('');
+
+    const handleTitleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value);
+    };
+
     return (
         <div style={modalContainer}>
             <section style={writingSection}>
-                <input type="text" style={titleStyle} placeholder="제목"/>
+                <input type="text" style={titleStyle} placeholder="제목" onChange={handleTitleChange}/>
                 <hr />
                 <textarea style={contentStyle} placeholder="내용을 입력하세요" />
             </section>
+
             <section style={previewSection}>
-                <input type="text" style={titleStyle} placeholder="제목" readOnly/>
+                <input type="text" style={titleStyle} placeholder="제목" readOnly value={title}/>
                 <hr />
                 <textarea style={contentStyle} placeholder="내용을 입력하세요" readOnly/>
             </section>
